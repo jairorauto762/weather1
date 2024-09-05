@@ -1,0 +1,97 @@
+body{
+    background-image: url(https://png.pngtree.com/thumb_back/fh260/background/20230930/pngtree-a-blue-sky-above-clouds-with-clouds-image_13313410.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    
+    color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+#weather {
+    
+    margin-top: 20px;
+    padding: 20px;
+    
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(230, 3, 3, 0.884);
+    display: flex;
+    
+}
+
+footer {
+    text-align: center;
+    margin: 20px;
+}
+
+
+.weather-up{
+    display: flex;
+    margin:30px;
+    flex-direction: column;
+    background-color: white;
+    opacity: 85%;
+    border-radius: 10px;
+    padding: 15px;
+    border: solid skyblue;
+    
+}
+
+form {
+    margin-bottom: 30px;
+}
+
+#location {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #aaa;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#weather {
+    margin-top: 20px;
+}
+
+.weather-up {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px auto;
+    width: 300px;
+}
+
+.weather-up h2 {
+    margin: 0;
+    color: #007BFF;
+}
+
+.weather-up p {
+    margin: 5px 0;
+    color: #333;
+}
+
+footer {
+    margin-top: 50px;
+    color: #777;
+    font-size: 14px;
+}

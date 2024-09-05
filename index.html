@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Weather Update</title>
+</head>
+<body>
+    <h1>Weather Update</h1>
+
+    <form id="locationForm">
+        <label for="location">Enter City or Country:</label>
+        <input type="text" id="location" placeholder="e.g., Iligan, Philippines">
+        <button type="submit">Get Weather</button>
+    </form>
+
+    <div id="weather"></div>
+
+    <script>
+        document.getElementById('locationForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); 
+            const apiKey = 'e90172d50a144b8592803433242208'; 
+            const cityName = document.getElementById('location').value; 
+            const apiEndpoint = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityName}&days=5`;
+
+            try {
+                const response = await fetch(apiEndpoint);
+                const weatherData = await response.json();
+                console.log(weatherData);
+
+                const weatherContainer = document.getElementById('weather');
+                weatherContainer.innerHTML = ''; 
+
+                
+                weatherData.forecast.forecastday.forEach(element => {
+                    weatherContainer.innerHTML += `
+                    <div class="weather-up">
+                        <h2>${cityName}</h2>
+                        <p><strong>Date:</strong> ${element.date}</p>
+                        <p><img src="https:${element.day.condition.icon}" alt="${element.day.condition.text}"></p>
+                        <p><strong>Temperature:</strong> ${element.day.avgtemp_c}°C</p>
+                        <p><strong>Weather:</strong> ${element.day.condition.text}</p>
+                        <p><strong>Humidity:</strong> ${element.day.avghumidity}%</p>
+                    </div>
+                    `;
+                });
+            } catch (error) {
+                const weatherContainer = document.getElementById('weather');
+                weatherContainer.innerHTML = `<p>Unable to retrieve weather data: ${error.message}</p>`;
+            }
+        });
+    </script>
+
+    <footer>Jairo Michael Rauto </footer>
+</body>
+</html>
